@@ -1,0 +1,1 @@
+export const NO_SYSTEM_NUMBER = 0
