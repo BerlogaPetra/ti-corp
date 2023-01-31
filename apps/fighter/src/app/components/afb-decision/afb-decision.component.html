@@ -1,0 +1,12 @@
+<!-- TODO: Add disabled styles -->
+<h2>Type of decision</h2>
+
+<div *ngIf="isNoneType$ | async; else decidedTemplate">
+  <button (click)="onSkip()">Skip AFB</button>
+  <button (click)="onPerform()">Perform AFB</button>
+</div>
+
+<ng-template #decidedTemplate [ngSwitch]="actionType$ | async">
+  <p *ngSwitchCase="'Perform'">Side will perform AFB</p>
+  <p *ngSwitchCase="'Skip'">Side will skip AFB</p>
+</ng-template>

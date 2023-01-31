@@ -1,71 +1,75 @@
-import { timeStamp } from 'console';
-import { SystemsNames } from '../enums/systems.enum';
-import { FactionUnit } from '../interfaces/unit.interface';
-import { Planet } from './planet.model';
+// import { timeStamp } from 'console';
+// import { SrvRecord } from 'dns';
+// import { SystemsNames } from '../enums/systems.enum';
+// import { DFactionUnit } from '../interfaces/unit.interface';
+// import { DPlanet } from './planet.model';
 
-export class System {
-  constructor(
-    public readonly systemName: SystemsNames,
-    public readonly planets: Planet[],
-    public readonly anomaly?: null
-  ) {}
 
-  public state: Map<string, FactionUnit[]> = new Map();
 
-  public activate(factionName: string) {
-    this.state.set(factionName, []);
-  }
 
-  public resetActivation(factionName: string) {
-    this.state.delete(factionName);
-  }
+// export class DSystem {
+//   constructor(
+//     public readonly systemName: SystemsNames,
+//     public readonly planets: DPlanet[],
+//     public readonly anomaly?: null
+//   ) {}
 
-  public addUnits(factionName: string, units: FactionUnit[]) {
-    const currentFactionUnits = this.state.get(factionName) ?? [];
-    const allUnits = [...currentFactionUnits, ...units];
+//   public state: Map<string, DFactionUnit[]> = new Map();
 
-    this.state.set(factionName, allUnits);
-  }
+//   public activate(factionName: string) {
+//     this.state.set(factionName, []);
+//   }
 
-  public removeUnits(factionName: string, units: FactionUnit[]) {
-    // TODO
-  }
+//   public resetActivation(factionName: string) {
+//     this.state.delete(factionName);
+//   }
 
-  public get isSpaceCombatAvailable() {
-    return this.#isMultiFaction && this.#spaceCombatUnits.size > 1;
-  }
+//   public addUnits(factionName: string, units: DFactionUnit[]) {
+//     const currentFactionUnits = this.state.get(factionName) ?? [];
+//     const allUnits = [...currentFactionUnits, ...units];
 
-  public get isGroundCombatAvailable() {
-    return this.#isMultiFaction && this.#groundCombatUnits.size > 1;
-  }
+//     this.state.set(factionName, allUnits);
+//   }
 
-  public get isProductionAvailable() {
-    return [...this.state.values()]
-      .flat()
-      .some((unit) => unit.abilities.production > 0);
-  }
+//   public removeUnits(factionName: string, units: DFactionUnit[]) {
+//     // TODO
+//   }
 
-  get #isMultiFaction() {
-    return this.state.size > 1;
-  }
+//   public get isSpaceCombatAvailable() {
+//     return this.#isMultiFaction && this.#spaceCombatUnits.size > 1;
+//   }
 
-  get #spaceCombatUnits() {
-    return new Map(
-      Array.from(this.state.entries()).reduce((base, [key, units]) => {
-        const targetUnits = units.filter((unit) => unit.isCanSpaceCombat);
+//   public get isGroundCombatAvailable() {
+//     return this.#isMultiFaction && this.#groundCombatUnits.size > 1;
+//   }
 
-        return targetUnits.length > 0 ? [...base, [key, targetUnits]] : base;
-      }, [] as [string, FactionUnit[]][])
-    );
-  }
+//   public get isProductionAvailable() {
+//     return [...this.state.values()]
+//       .flat()
+//       .some((unit) => unit.abilities.production > 0);
+//   }
 
-  get #groundCombatUnits() {
-    return new Map(
-      Array.from(this.state.entries()).reduce((base, [key, units]) => {
-        const targetUnits = units.filter((unit) => unit.isCanGroundCombat);
+//   get #isMultiFaction() {
+//     return this.state.size > 1;
+//   }
 
-        return targetUnits.length > 0 ? [...base, [key, targetUnits]] : base;
-      }, [] as [string, FactionUnit[]][])
-    );
-  }
-}
+//   get #spaceCombatUnits() {
+//     return new Map(
+//       Array.from(this.state.entries()).reduce((base, [key, units]) => {
+//         const targetUnits = units.filter((unit) => unit.isCanSpaceCombat);
+
+//         return targetUnits.length > 0 ? [...base, [key, targetUnits]] : base;
+//       }, [] as [string, DFactionUnit[]][])
+//     );
+//   }
+
+//   get #groundCombatUnits() {
+//     return new Map(
+//       Array.from(this.state.entries()).reduce((base, [key, units]) => {
+//         const targetUnits = units.filter((unit) => unit.isCanGroundCombat);
+
+//         return targetUnits.length > 0 ? [...base, [key, targetUnits]] : base;
+//       }, [] as [string, DFactionUnit[]][])
+//     );
+//   }
+// }

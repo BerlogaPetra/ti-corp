@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="header">
+    <ng-container *ngTemplateOutlet="cardTitleTemplateRef ?? defaultCardTitleTemplate"></ng-container>
+  </div>
+  <div class="body">
+    <ng-container *ngTemplateOutlet="cardBodyTemplateRef ?? defaultCardBodyTemplate"></ng-container>
+  </div>
+</div>
+
+<ng-template #defaultCardTitleTemplate>
+    <p>Title</p>
+</ng-template>
+
+<ng-template #defaultCardBodyTemplate>
+    <p>Body</p>
+</ng-template>

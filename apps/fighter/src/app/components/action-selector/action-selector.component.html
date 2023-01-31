@@ -1,0 +1,21 @@
+<form
+  class="form-container"
+  [formGroup]="form"
+  (tiCorpFormValueChanges)="onChange($event)"
+>
+  <h2>Select your Actions:</h2>
+  <div class="container">
+    <ti-corp-toggle-card
+      *ngFor="let option of options"
+      [formControlName]="option.type"
+    >
+      <ng-template tiCorpCardTitle>
+        <p class="title">{{ option.type }}</p>
+      </ng-template>
+
+      <ng-template tiCorpCardBody>
+        <p class="description">{{ option.description }}</p>
+      </ng-template>
+    </ti-corp-toggle-card>
+  </div>
+</form>

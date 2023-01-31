@@ -1,4 +1,4 @@
-export class UnitProperties {
+export class DUnitProperties {
   constructor(
     public readonly cost: number,
     public readonly move: number,

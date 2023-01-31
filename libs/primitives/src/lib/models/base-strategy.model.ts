@@ -1,6 +1,6 @@
 import { SystemsNames } from "../enums/systems.enum";
 
-export abstract class BaseStrategy {
+export abstract class DBaseStrategy {
   public readonly system?: SystemsNames
 
   public abstract primaryAbility: string[];

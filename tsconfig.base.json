@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@ti-corp/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@ti-corp/dashboard": ["libs/dashboard/src/index.ts"],
       "@ti-corp/primitives": ["libs/primitives/src/index.ts"],
       "@ti-corp/runner": ["libs/runner/src/index.ts"]
     }

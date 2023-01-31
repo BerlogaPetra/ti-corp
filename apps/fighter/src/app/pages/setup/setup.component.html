@@ -1,0 +1,31 @@
+<h1>Setup</h1>
+<div class="container">
+  <div>
+    <h2>Attacker</h2>
+
+    <ti-corp-side-selector
+      [factions]="factions"
+      [technologies]="technologies"
+      [actions]="actions"
+      [form]="attackerForm$ | async"
+      (ready)="onAttackerReady()"
+      (unready)="onAttackerUnready()"
+    ></ti-corp-side-selector>
+  </div>
+  <div>
+    <h2>Defender</h2>
+
+    <ti-corp-side-selector
+      [factions]="factions"
+      [technologies]="technologies"
+      [actions]="actions"
+      [form]="defenderForm$ | async"
+      (ready)="onDefenderReady()"
+      (unready)="onDefenderUnready()"
+    ></ti-corp-side-selector>
+  </div>
+</div>
+
+<div class="ready-container" *ngIf="isReadyToRoll$ | async">
+  <button (click)="onReady()">Go to Roll</button>
+</div>

@@ -1,0 +1,18 @@
+<div [ngSwitch]="screenType$ | async">
+  <ti-corp-setup
+    *ngSwitchCase="screenTypes.Setup"
+    (ready)="onScreenChange(screenTypes.Roll)"
+  ></ti-corp-setup>
+  <ti-corp-roll *ngSwitchCase="screenTypes.Roll">
+    <button (click)="onScreenChange(screenTypes.Setup)">Back to Setup</button>
+  </ti-corp-roll>
+  <ti-corp-assign *ngSwitchCase="screenTypes.Assign"></ti-corp-assign>
+
+  <p *ngSwitchDefault>No matched screen</p>
+</div>
+
+<!-- <div>
+  <button (click)="onScreenChange(screenTypes.Roll)">Move to Roll</button>
+  <button (click)="onScreenChange(screenTypes.Assign)">Move to Assign</button>
+  <button (click)="onScreenChange(screenTypes.Setup)">Move to Setup</button>
+</div> -->

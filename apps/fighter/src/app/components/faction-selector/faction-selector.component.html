@@ -1,0 +1,8 @@
+<label>
+  <h2>Select your Faction:</h2>
+  <select [formControl]="control" (tiCorpFormValueChanges)="onChange($event)">
+    <option *ngFor="let option of options" [value]="option">
+      {{ option }}
+    </option>
+  </select>
+</label>

@@ -1,4 +1,8 @@
-export class PlayerSheet {
+
+
+
+export class DPlayerSheet {
+
   public tacticPool = 3;
   public fleetPool = 3;
   public strategyPool = 2;
