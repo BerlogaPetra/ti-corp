@@ -1,24 +1,24 @@
-import { FactionUnit } from '../interfaces/unit.interface';
-import { UnitTemplate } from '../models/unit.model';
+// // import { DFactionUnit, Unit } from '../interfaces/unit.interface';
+// // import { DUnitTemplate } from '../models/unit.model';
 
-function buildUnit(
-  factionName: string,
-  unitTemplate: UnitTemplate
-): FactionUnit {
-  return { ...unitTemplate, factionName };
-}
+// function buildUnit(
+//   factionName: string,
+//   unitTemplate: Unit
+// ): DFactionUnit {
+//   // return { ...unitTemplate, factionName };
+// }
 
-function buildUnits(
-  factionName: string,
-  unitTemplate: UnitTemplate,
-  amount: number
-): FactionUnit[] {
-  return Array.from({ length: amount }).map(() => {
-    return buildUnit(factionName, unitTemplate);
-  });
-}
+// function buildUnits(
+//   factionName: string,
+//   unitTemplate: DUnitTemplate,
+//   amount: number
+// ): DFactionUnit[] {
+//   // return Array.from({ length: amount }).map(() => {
+//   //   return buildUnit(factionName, unitTemplate);
+//   // });
+// }
 
-export const UnitsUtils = {
-  buildUnit,
-  buildUnits,
-};
+// export const UnitsUtils = {
+//   buildUnit,
+//   buildUnits,
+// };

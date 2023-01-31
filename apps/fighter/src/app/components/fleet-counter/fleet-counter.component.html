@@ -1,0 +1,19 @@
+<div *ngIf="{ isDisabled: isDisabled$ | async } as context">
+  <span>
+    <!-- TODO: Consider to use input instead raw text -->
+    <p [ngClass]="{ disabled: context.isDisabled }">
+      {{ title }} : {{ amount$ | async }}
+    </p>
+  </span>
+  <span>
+    <!-- TODO:Consider to use long tap for quickly increase / decrease -->
+    <button [disabled]="context.isDisabled" (click)="increase()">+</button>
+    <button [disabled]="context.isDisabled" (click)="decrease()">-</button>
+    <button [disabled]="context.isDisabled" (click)="reset()">x</button>
+    <input
+      [disabled]="context.isDisabled"
+      (click)="upgrade()"
+      type="checkbox"
+    />
+  </span>
+</div>

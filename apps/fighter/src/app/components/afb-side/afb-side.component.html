@@ -1,0 +1,30 @@
+<form
+  *ngIf="side"
+  [formGroup]="form"
+  (tiCorpFormValueChanges)="onChange($event)"
+>
+  <ti-corp-afb-overview
+    [fleet]="side.fleet"
+    [faction]="side.faction"
+  ></ti-corp-afb-overview>
+  <ti-corp-afb-decision formControlName="decision"></ti-corp-afb-decision>
+
+  <ng-container *ngIf="isDecisionPerform$ | async">
+    <!-- TODO: Move actions into roll component for easy use -->
+    <!-- <ti-corp-action-selector [options]="actions"></ti-corp-action-selector> -->
+    <h2>Placeholder for actions</h2>
+
+    <ti-corp-afb-roll [side]="side" formControlName="rolls"></ti-corp-afb-roll>
+  </ng-container>
+
+  <!-- TODO: Hide until decision was made -->
+  <ti-corp-afb-assign
+    *ngIf="incomingRolls | hits as hits"
+    [hits]="hits"
+    formControlName="assignedHits"
+  ></ti-corp-afb-assign>
+</form>
+
+<!-- Move into separate component-control -->
+
+<!-- Make check if user is rolled dices or just skipped and opponent has a roll result -->

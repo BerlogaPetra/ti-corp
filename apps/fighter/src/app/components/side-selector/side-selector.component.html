@@ -1,0 +1,21 @@
+<form *ngIf="form" [formGroup]="form"  class="side-container">
+  <ti-corp-faction-selector
+    formControlName="faction"
+    [options]="factions"
+  ></ti-corp-faction-selector>
+  <ti-corp-fleet-selector formControlName="fleet"></ti-corp-fleet-selector>
+  <ti-corp-technology-selector
+    formControlName="technologies"
+    [options]="technologies"
+  ></ti-corp-technology-selector>
+  <ti-corp-action-selector
+    formControlName="actions"
+    [options]="actions"
+  ></ti-corp-action-selector>
+
+  <button *ngIf="isReady; else readyTmp" (click)="onUnready()">Unready</button>
+
+  <ng-template #readyTmp>
+    <button (click)="onReady()">Ready</button>
+  </ng-template>
+</form>

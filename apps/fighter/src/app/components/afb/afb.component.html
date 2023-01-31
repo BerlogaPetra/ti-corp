@@ -1,0 +1,29 @@
+<h2>Anti-Fighter Barrage</h2>
+
+<form
+  [formGroup]="form"
+  (tiCorpFormValueChanges)="onChange($event)"
+  class="container"
+>
+  <div>
+    <h2>Attacker</h2>
+
+    <ti-corp-afb-side
+      *ngIf="attacker"
+      [side]="attacker"
+      [incomingRolls]="defenderRolls$ | async"
+      formControlName="attacker"
+    >
+    </ti-corp-afb-side>
+  </div>
+  <div>
+    <h2>Defender</h2>
+    <ti-corp-afb-side
+      *ngIf="defender"
+      [side]="defender"
+      [incomingRolls]="attackerRolls$ | async"
+      formControlName="defender"
+    >
+    </ti-corp-afb-side>
+  </div>
+</form>

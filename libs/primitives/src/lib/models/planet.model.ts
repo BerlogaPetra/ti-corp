@@ -1,17 +1,19 @@
-import { SystemsNames } from '../enums/systems.enum';
-import { UnitTemplate } from './unit.model';
 
-export class Planet {
+import { DUnitTemplate } from './unit.model';
+
+export class DPlanet {
   constructor(
+    public readonly id: string,
+
     public readonly name: string,
-    public readonly system: SystemsNames,
+    public readonly systemId: string,
     public readonly resources: number,
     public readonly influences: number
   ) {}
 
   public isExhausted = false;
 
-  public units: UnitTemplate[] = [];
+  public units: DUnitTemplate[] = [];
 
   public ready() {
     this.isExhausted = false;
@@ -21,7 +23,7 @@ export class Planet {
     this.isExhausted = true;
   }
 
-  public setUnits(units: UnitTemplate[]) {
+  public setUnits(units: DUnitTemplate[]) {
     this.units = units;
   }
 
@@ -29,7 +31,7 @@ export class Planet {
     this.units = [];
   }
 
-  public addUnits(units: UnitTemplate[]) {
+  public addUnits(units: DUnitTemplate[]) {
     this.units.push(...units);
   }
 }

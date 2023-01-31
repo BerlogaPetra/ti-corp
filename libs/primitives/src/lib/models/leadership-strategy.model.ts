@@ -1,6 +1,6 @@
-import { BaseStrategy } from './base-strategy.model';
+import { DBaseStrategy } from './base-strategy.model';
 
-export class LeadershipStrategy extends BaseStrategy {
+export class DLeadershipStrategy extends DBaseStrategy {
   public primaryAbility = [
     'Gain 3 tokens',
     'Spend any amount of influence to gain tokens 3:1',

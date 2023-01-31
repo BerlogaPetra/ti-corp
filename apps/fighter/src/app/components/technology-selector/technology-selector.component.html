@@ -1,0 +1,25 @@
+<form class="form-container" [formGroup]="form" (tiCorpFormValueChanges)="onChange($event)">
+  <h2>Select your Technologies:</h2>
+  <div class="container">
+    <ti-corp-toggle-card
+      *ngFor="let option of options"
+      [formControlName]="option.type"
+    >
+      <ng-template tiCorpCardTitle>
+        <div>
+          <p>{{ option.type }}</p>
+        </div>
+      </ng-template>
+      <ng-template tiCorpCardBody>
+        <div>
+          <p class="description">{{ option.description }}</p>
+          <div *ngIf="option.fleetStats">
+            <!-- TODO: Move into separate component -->
+            <span> Move {{ option.fleetStats.move }} </span>
+            <span> Damage {{ option.fleetStats.damage }} </span>
+          </div>
+        </div>
+      </ng-template>
+    </ti-corp-toggle-card>
+  </div>
+</form>

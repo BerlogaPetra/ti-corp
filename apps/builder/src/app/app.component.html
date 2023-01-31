@@ -1,9 +1,17 @@
-<div style="text-align: center">
-  <h1>Welcome to builder!</h1>
-  <img
-    width="450"
-    src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
-    alt="Nx - Smart, Fast and Extensible Build System"
-  />
-</div>
-<div>Message: {{ hello$ | async | json }}</div>
+<ng-container *ngIf="isOpen">
+    <form *ngIf="form$ | async as form" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div formArrayName="list">
+          <ng-container *ngFor="let group of formList$ | async; let index = index">
+            <div [formGroupName]="index">
+              <input formControlName="name" />
+            </div>
+          </ng-container>
+        </div>
+      
+        <button type="submit">Submit</button>
+      </form>
+      
+      
+</ng-container>
+
+<button (click)="onToggle()">Toggle</button>

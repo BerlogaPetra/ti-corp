@@ -1,1 +1,7 @@
-export const NO_SYSTEM_NUMBER = 0
+export const SYSTEMS = {
+    name: "A",
+    planets: [
+        "A1",
+        "A2"
+    ]
+}

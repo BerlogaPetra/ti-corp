@@ -1,0 +1,21 @@
+<div>
+  <h2>Rolls</h2>
+
+  <div>
+    <p>Faction will roll {{ rolls$ | async | rollComposition }} dices</p>
+    <button (click)="onRoll()">Make Roll</button>
+  </div>
+
+  <!-- TODO: Add indicator about roll and hide it until rolled -->
+
+  <div *ngIf="isRolled">
+    <h4>Rolled</h4>
+    <span *ngFor="let roll of rolls$ | async">
+      {{ roll | roll }}
+      <br />
+    </span>
+
+    <h4>Hits</h4>
+    <p>{{ rolls$ | async | hits }} hits</p>
+  </div>
+</div>

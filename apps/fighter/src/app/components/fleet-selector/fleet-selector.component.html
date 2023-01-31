@@ -1,0 +1,31 @@
+<form
+  class="form-container"
+  [formGroup]="form"
+  (tiCorpFormValueChanges)="onChange($event)"
+>
+  <h2>Select your Fleet:</h2>
+  <ti-corp-fleet-counter
+    formControlName="fighters"
+    [title]="'Fighter'"
+  ></ti-corp-fleet-counter>
+
+  <ti-corp-fleet-counter
+    formControlName="infantry"
+    [title]="'Infantry'"
+  ></ti-corp-fleet-counter>
+
+  <ti-corp-fleet-counter
+    formControlName="destroyers"
+    [title]="'Destroyers'"
+  ></ti-corp-fleet-counter> 
+  
+  <ti-corp-fleet-counter
+    formControlName="flagship"
+    [title]="'Flagship'"
+  ></ti-corp-fleet-counter>
+  
+  <ti-corp-fleet-counter
+    formControlName="dreadnoughts"
+    [title]="'Dreadnoughts'"
+  ></ti-corp-fleet-counter>
+</form>

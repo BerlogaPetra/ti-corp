@@ -1,7 +1,7 @@
-import { UnitAbilities } from './unit-abilities.model';
-import { UnitTemplate } from './unit.model';
+import { DUnitAbilities } from './unit-abilities.model';
+import { DUnitTemplate } from './unit.model';
 
-const DEFAULT_ABILITIES: UnitAbilities = {
+const DEFAULT_ABILITIES: DUnitAbilities = {
   isCanAFBarrage: false,
   isCanBeTransported: false,
   isCanBombardment: false,
@@ -12,7 +12,7 @@ const DEFAULT_ABILITIES: UnitAbilities = {
   production: 0
 } as const;
 
-export const SpaceDock = new UnitTemplate(
+export const SpaceDock = new DUnitTemplate(
   {
     capacity: 3,
     cost: 0,
@@ -22,7 +22,7 @@ export const SpaceDock = new UnitTemplate(
   DEFAULT_ABILITIES
 );
 
-export const Carrier = new UnitTemplate(
+export const Carrier = new DUnitTemplate(
   {
     capacity: 4,
     cost: 3,
@@ -32,7 +32,7 @@ export const Carrier = new UnitTemplate(
   DEFAULT_ABILITIES
 );
 
-export const Fighter = new UnitTemplate(
+export const Fighter = new DUnitTemplate(
   {
     capacity: 0,
     cost: 0.5,
@@ -42,7 +42,7 @@ export const Fighter = new UnitTemplate(
   DEFAULT_ABILITIES
 );
 
-export const Infantry = new UnitTemplate(
+export const Infantry = new DUnitTemplate(
   {
     capacity: 0,
     cost: 0.5,
@@ -55,7 +55,7 @@ export const Infantry = new UnitTemplate(
   }
 );
 
-export const Destroyer = new UnitTemplate(
+export const Destroyer = new DUnitTemplate(
   {
     capacity: 0,
     cost: 1,

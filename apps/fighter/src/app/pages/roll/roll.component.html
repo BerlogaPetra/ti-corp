@@ -1,0 +1,15 @@
+<h1>Roll</h1>
+
+<form [formGroup]="form">
+  <ti-corp-afb
+    *ngIf="isReadyToAFB$ | async"
+    [attacker]="attacker$ | async"
+    [defender]="defender$ | async"
+    formControlName="afb"
+  ></ti-corp-afb>
+</form>
+
+<!-- Nav footer -->
+<div>
+  <ng-content></ng-content>
+</div>

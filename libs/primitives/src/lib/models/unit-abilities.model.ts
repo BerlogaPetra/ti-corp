@@ -1,4 +1,4 @@
-export class UnitAbilities {
+export class DUnitAbilities {
   constructor(
     public readonly isCanBeTransported: boolean,
     public readonly isCanSustainDamage: boolean,
